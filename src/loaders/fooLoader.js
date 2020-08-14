@@ -6,7 +6,7 @@ const querySql = fs.readFileSync(
   'utf-8'
 );
 const fooService = require('../services/fooService');
-const databaseConfig = require('../configs/db.config');
+const databaseConfig = require('../configs/database');
 
 class FooLoader {
   async getDataFromDatabase() {
@@ -22,8 +22,8 @@ class FooLoader {
   async transformData(data) {
     const transformedData = data.map((foo) => {
       return {
-        fooDescription: foo.description,
-        fooName: foo.name,
+        fooDescription: foo.DEPARTAMENTO,
+        fooName: foo.CATEGORIA,
       };
     });
     return transformedData;

@@ -3,10 +3,10 @@ const sql = require('mssql');
 class DatabaseConnector {
 	async getData(query) {
 		const config = {
-			user: this.process.env.DB_USER,
-			password: this.process.env.DB_PASSWORD,
-			server: this.process.env.DB_SERVER,
-			database: this.process.env.DB_NAME,
+			user: process.env.DB_USER,
+			password: process.env.DB_PASSWORD,
+			server: process.env.DB_SERVER,
+			database: process.env.DB_NAME,
 		};
 
 		return sql
