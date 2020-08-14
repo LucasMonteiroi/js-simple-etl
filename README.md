@@ -129,5 +129,5 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 Please make sure to update tests as appropriate.
 
-## License :white_check_mark: 
+## :white_check_mark: License 
 [MIT](https://choosealicense.com/licenses/mit/)
