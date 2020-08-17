@@ -1,4 +1,4 @@
-require('dotenv').config({path: __dirname + '/.env'});
-const fooLoader = require('./src/loaders/fooLoader');
-
-fooLoader.processLoader();
+require('dotenv/config');
+const app = require('./src/app');
+const port = process.env.PORT || 3333;
+app.listen(port, console.log(`Listening on port: ${port}`));
