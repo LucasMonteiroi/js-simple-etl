@@ -1,4 +1,5 @@
 const etlSchema = require('../schemas/Etl');
+const workerLoader = require('../loaders/workerLoader');
 
 class EtlController {
   async bulkInsert(req, res) {
@@ -71,12 +72,13 @@ class EtlController {
       useBearerAuth,
       bearerData,
     });
+
     return res.json(updatedData);
   }
 
   async getAll(req, res) {
     const data = await etlSchema.find();
-    return res.json({ data });
+    return res.json({ count: data.length, data });
   }
 
   async getById(req, res) {
@@ -95,9 +97,8 @@ class EtlController {
   async run(req, res) {
     const id = req.params.id;
     const data = await etlSchema.findById(id);
-    
-    // Todo: will run here    
-    return res.json({data});
+    const result = await workerLoader.run(data);
+    return res.json({result});
   }
 }
 
