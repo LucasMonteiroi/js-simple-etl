@@ -1,11 +1,9 @@
 const axios = require('axios');
 class AuthService {
-  async getToken() {
-    const address = process.env.AUTH_API;
-
+  async getToken(address, user, password) {
     const bodyRequest = {
-      userName: process.env.TOKEN_USER,
-      userPassword: process.env.TOKEN_PASSWORD,
+      userName: user,
+      userPassword: password,
     };
 
     return axios
