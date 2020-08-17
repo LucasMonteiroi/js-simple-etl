@@ -11,13 +11,13 @@ class RequestService {
         return headers;
     }
 
-    async makeRequest(httpMethod, url, payload, useBearerAuth = true) {
+    async makeRequest(httpMethod, url, payload, useBearerAuth = true, bearerData = {}) {
         try {
             const { data } = await axios({
                 method: httpMethod,
                 url,
                 data: payload,
-                headers: this.getHeaders(useBearerAuth),
+                headers: this.getHeaders(useBearerAuth, bearerData),
             });
 
             return data;

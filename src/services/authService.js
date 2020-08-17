@@ -1,13 +1,13 @@
 const axios = require('axios');
 class AuthService {
-  async getToken(address, user, password) {
+  async getToken(bearerData) {
     const bodyRequest = {
-      userName: user,
-      userPassword: password,
+      userName: bearerData.user,
+      userPassword: bearerData.password,
     };
 
     return axios
-      .post(address, bodyRequest)
+      .post(bearerData.address, bodyRequest)
       .then((response) => {
         return response.data.token;
       })
