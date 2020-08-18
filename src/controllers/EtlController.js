@@ -96,8 +96,9 @@ class EtlController {
 
   async run(req, res) {
     const id = req.params.id;
+    const selectedColumns = req.body;
     const data = await etlSchema.findById(id);
-    const result = await workerLoader.run(data);
+    const result = await workerLoader.run(data, selectedColumns);
     return res.json({result});
   }
 }
