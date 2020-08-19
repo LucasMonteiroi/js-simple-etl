@@ -1,0 +1,20 @@
+{
+  "env": {
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": ["airbnb", "prettier"],
+  "globals": {
+    "Atomics": "readonly",
+    "SharedArrayBuffer": "readonly"
+  },
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2019
+  },
+  "rules": {
+    "linebreak-style": [0, "error", "windows"],
+    "prettier/prettier": ["error"]
+  }
+}
